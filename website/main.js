@@ -1,7 +1,9 @@
 let ws;
 
 document.getElementById("startBtn").onclick = async () => {
-    ws = new WebSocket("wss://YOUR_RENDER_URL.onrender.com"); // CHANGE THIS
+    // ws = new WebSocket("wss://YOUR_RENDER_URL.onrender.com"); // CHANGE THIS
+    ws = new WebSocket("wss://audio32rextro.onrender.com");
+
 
     ws.onopen = () => {
         console.log("Connected to cloud WebSocket");
