@@ -1,13 +1,12 @@
 let ws;
 
 document.getElementById("startBtn").onclick = async () => {
-    // ws = new WebSocket("wss://YOUR_RENDER_URL.onrender.com"); // CHANGE THIS
-    ws = new WebSocket("wss://audio32rextro.onrender.com");
+    // Use the current host so the client works regardless of deploy URL
+    const protocol = location.protocol === 'https:' ? 'wss' : 'ws';
+    const wsUrl = `${protocol}://${location.host}`;
+    ws = new WebSocket(wsUrl);
 
-
-    ws.onopen = () => {
-        console.log("Connected to cloud WebSocket");
-    };
+    ws.onopen = () => console.log('Connected to cloud WebSocket');
 
     await startAudio();
 };
