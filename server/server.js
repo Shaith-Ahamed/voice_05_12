@@ -14,10 +14,19 @@ const app = express();
 const PORT = process.env.PORT || 10000;
 
 // Serve your website folder statically
-app.use(express.static(path.join(__dirname, "../website")));
+app.use(express.static(path.join(__dirname, "../website"))); 
+
+// Health check for hosting providers
+app.get('/health', (req, res) => res.send('ok'));
+
+// Fallback to index.html for single-page app routes
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../website/index.html'));
+});
 
 const server = app.listen(PORT, () => {
     console.log(`HTTP + WebSocket running on port ${PORT}`);
+    console.log('PORT env:', process.env.PORT);
 });
 
 // ---------------------- WEBSOCKET SERVER ----------------------
