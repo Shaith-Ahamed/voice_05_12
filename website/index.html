@@ -74,16 +74,17 @@
     }
   </style>
 </head>
-<body>
-  <div class="container">
-    <h1>Voice Control Water Fountain</h1>
-    <h2 id=" startBtn">Tap the Start button to start Streaming</h2>
-    <button id="startBtn">Start Streaming</button>
-    <h2 id="stopBtn">Tap the Stop button to stop Streaming</h2>
-    <button id="stopBtn">Stop Streaming</button>
-    <div id="status"></div>
-  </div>
+<div class="container">
+    <h1>Voice Control Water Fountain</h1>
+    
+        <p id="instructionText">Click **Start Streaming** to begin voice control.</p> 
 
-  <script src="main.js"></script>
+    <button id="startBtn">Start Streaming</button>
+    <button id="stopBtn">Stop Streaming</button>
+    
+    <div id="status" class="status-info">Awaiting user input...</div>
+  </div>
+
+  <script src="main.js"></script>
 </body>
 </html>
